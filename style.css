@@ -256,7 +256,7 @@ body{
     border-radius: 50%;
     margin: 10px;
 
-    animation: scaling 1.8s ease-in-out infinite;
+    animation: scaling 1.6s ease-in-out infinite;
 }
 
 .loader div:nth-child(1){
@@ -291,4 +291,106 @@ body{
     50%{
         transform: scale(.5);
     }
+}
+
+.modal{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0    ,0,0.6);
+    position: absolute;
+    z-index: 2;
+    visibility: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.modal-content{
+    background: white;
+    width: 50%;
+    height: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.modal-content img{
+    place-self: start start;
+    width: 40px;
+}
+
+.modal-content img:hover{
+    cursor: pointer;
+}
+
+
+.modal__content--slider{
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+}
+
+.cards{
+    position: relative;
+    width: 100%;
+    height: 60%;
+}
+.card {
+    background: var(--yellow);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+
+#radio-1:checked ~ .cards #card-1,
+#radio-2:checked ~ .cards #card-2,
+#radio-3:checked ~ .cards #card-3{
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+#radio-1:checked ~ .cards #card-2,
+#radio-2:checked ~ .cards #card-3,
+#radio-3:checked ~ .cards #card-1{
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+#radio-1:checked ~ .cards #card-3,
+#radio-2:checked ~ .cards #card-1,
+#radio-3:checked ~ .cards #card-2{
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+#radio-1, #radio-2, #radio-3{
+    visibility: hidden;
+}
+
+.cards .card img{
+    width: 80%;
+    margin: auto auto;
+}
+
+.modal-content button {
+    width: 100%;
+    background: var(--red);
+    color: white;
+    height: 50px;
+    margin: 25px 0 auto auto;
+    border: none;
+    font-weight: bold;
+}
+
+.modal-content button:hover{
+    cursor: pointer;
 }
